@@ -218,30 +218,50 @@
       z-index: 1;
     }
 
-    /* Primary Button (Bespoke) */
+    /* Primary Button (Bespoke) - Highlighted */
     .btn-primary {
       background: linear-gradient(135deg, #EBDBA5 0%, #F4E4B8 100%);
       color: #1a1a1a;
-      box-shadow: 0 10px 30px rgba(235, 219, 165, 0.4);
+      box-shadow: 0 12px 35px rgba(235, 219, 165, 0.5), 0 0 40px rgba(235, 219, 165, 0.3);
+      padding: 1.4rem 3.5rem;
+      font-size: 1.2rem;
+      animation: buttonPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes buttonPulse {
+
+      0%,
+      100% {
+        box-shadow: 0 12px 35px rgba(235, 219, 165, 0.5), 0 0 40px rgba(235, 219, 165, 0.3);
+        transform: scale(1);
+      }
+
+      50% {
+        box-shadow: 0 15px 45px rgba(235, 219, 165, 0.7), 0 0 50px rgba(235, 219, 165, 0.5);
+        transform: scale(1.02);
+      }
     }
 
     .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 40px rgba(235, 219, 165, 0.6);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 18px 50px rgba(235, 219, 165, 0.8), 0 0 60px rgba(235, 219, 165, 0.6);
+      animation: none;
     }
 
-    /* Secondary Button (App) - Pink */
+    /* Secondary Button (App) - Pink - Smaller */
     .btn-secondary {
       background: linear-gradient(135deg, #EE5D8C 0%, #F77BA0 100%);
       color: #ffffff;
       border: 2px solid transparent;
-      box-shadow: 0 10px 30px rgba(238, 93, 140, 0.4);
+      box-shadow: 0 6px 20px rgba(238, 93, 140, 0.3);
+      padding: 0.9rem 2rem;
+      font-size: 0.95rem;
     }
 
     .btn-secondary:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       background: linear-gradient(135deg, #F77BA0 0%, #FF8FB5 100%);
-      box-shadow: 0 15px 40px rgba(238, 93, 140, 0.6);
+      box-shadow: 0 10px 30px rgba(238, 93, 140, 0.5);
     }
 
     /* Snowflakes Animation */
@@ -283,6 +303,16 @@
       .btn {
         width: 100%;
         max-width: 350px;
+      }
+
+      .btn-primary {
+        padding: 1.2rem 2.5rem;
+        font-size: 1.1rem;
+      }
+
+      .btn-secondary {
+        padding: 0.85rem 1.8rem;
+        font-size: 0.9rem;
       }
 
       .christmas-badge span {

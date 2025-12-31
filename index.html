@@ -2,457 +2,564 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script defer src="/_vercel/insights/script.js"></script>
-  <title>Huggnote Bespoke - Limited Edition Christmas Release</title>
-  <meta name="description"
-    content="Introducing our new limited edition Christmas release - Bespoke songs wrapped in emotions." />
-
-  <!-- Google Fonts - Lora -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Huggnote</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'snowfall': 'snowfall 10s linear infinite',
+          },
+          keyframes: {
+            snowfall: {
+              '0%': { transform: 'translateY(-10px)', opacity: '0' },
+              '10%': { opacity: '1' },
+              '90%': { opacity: '1' },
+              '100%': { transform: 'translateY(100vh)', opacity: '0' }
+            }
+          }
+        }
+      }
+    }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
-
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Lora', serif;
-      overflow-x: hidden;
-      background: #000;
-    }
-
-    .hero-section {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    /* Background Image */
-    .background-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 1;
-    }
-
-    /* Overlay for better text readability */
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom,
-          rgba(0, 0, 0, 0.3) 0%,
-          rgba(0, 0, 0, 0.5) 50%,
-          rgba(0, 0, 0, 0.7) 100%);
-      z-index: 2;
-    }
-
-    /* Content Container */
-    .content {
-      position: relative;
-      z-index: 3;
-      text-align: center;
-      padding: 2rem;
-      max-width: 900px;
-      animation: fadeInUp 1.2s ease-out;
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
+    /* Custom animation for snowfall if tailwind config doesn't catch it exactly from the blind paste */
+    @keyframes snowfall {
+      0% {
         transform: translateY(0);
-      }
-    }
-
-    /* Logo */
-    .logo {
-      max-width: 400px;
-      width: 100%;
-      height: auto;
-      margin: 0 auto 2rem;
-      filter: drop-shadow(0 10px 30px rgba(235, 219, 165, 0.3));
-      animation: logoGlow 3s ease-in-out infinite;
-    }
-
-    @keyframes logoGlow {
-
-      0%,
-      100% {
-        filter: drop-shadow(0 10px 30px rgba(235, 219, 165, 0.3));
-      }
-
-      50% {
-        filter: drop-shadow(0 10px 40px rgba(235, 219, 165, 0.5));
-      }
-    }
-
-    /* Christmas Badge */
-    .christmas-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, rgba(235, 219, 165, 0.2), rgba(235, 219, 165, 0.15));
-      border: 2px solid rgba(235, 219, 165, 0.6);
-      padding: 0.75rem 2rem;
-      border-radius: 50px;
-      margin-bottom: 2rem;
-      backdrop-filter: blur(10px);
-      animation: shimmer 2s ease-in-out infinite;
-    }
-
-    @keyframes shimmer {
-
-      0%,
-      100% {
-        box-shadow: 0 0 20px rgba(235, 219, 165, 0.3);
-      }
-
-      50% {
-        box-shadow: 0 0 30px rgba(235, 219, 165, 0.6);
-      }
-    }
-
-    .christmas-badge span {
-      color: #EBDBA5;
-      font-size: 0.9rem;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    /* Main Heading */
-    .main-heading {
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: #EBDBA5;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-      text-shadow: 0 4px 20px rgba(235, 219, 165, 0.4);
-      animation: textGlow 3s ease-in-out infinite;
-    }
-
-    @keyframes textGlow {
-
-      0%,
-      100% {
-        text-shadow: 0 4px 20px rgba(235, 219, 165, 0.4);
-      }
-
-      50% {
-        text-shadow: 0 4px 30px rgba(235, 219, 165, 0.6);
-      }
-    }
-
-    /* Subheading */
-    .subheading {
-      font-size: 1.5rem;
-      color: rgba(235, 219, 165, 0.9);
-      margin-bottom: 3rem;
-      font-weight: 400;
-      letter-spacing: 1px;
-    }
-
-    /* Buttons Container */
-    .buttons-container {
-      display: flex;
-      gap: 1.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 3rem;
-    }
-
-    /* Button Styles */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.2rem 3rem;
-      font-size: 1.1rem;
-      font-weight: 600;
-      font-family: 'Lora', serif;
-      text-decoration: none;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-      letter-spacing: 0.5px;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
-    }
-
-    .btn:hover::before {
-      width: 300px;
-      height: 300px;
-    }
-
-    .btn span {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Primary Button (Bespoke) - Highlighted */
-    .btn-primary {
-      background: linear-gradient(135deg, #EBDBA5 0%, #F4E4B8 100%);
-      color: #1a1a1a;
-      box-shadow: 0 12px 35px rgba(235, 219, 165, 0.5), 0 0 40px rgba(235, 219, 165, 0.3);
-      padding: 1.4rem 3.5rem;
-      font-size: 1.2rem;
-      animation: buttonPulse 2s ease-in-out infinite;
-    }
-
-    @keyframes buttonPulse {
-
-      0%,
-      100% {
-        box-shadow: 0 12px 35px rgba(235, 219, 165, 0.5), 0 0 40px rgba(235, 219, 165, 0.3);
-        transform: scale(1);
-      }
-
-      50% {
-        box-shadow: 0 15px 45px rgba(235, 219, 165, 0.7), 0 0 50px rgba(235, 219, 165, 0.5);
-        transform: scale(1.02);
-      }
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 18px 50px rgba(235, 219, 165, 0.8), 0 0 60px rgba(235, 219, 165, 0.6);
-      animation: none;
-    }
-
-    /* Secondary Button (App) - Pink - Smaller */
-    .btn-secondary {
-      background: linear-gradient(135deg, #EE5D8C 0%, #F77BA0 100%);
-      color: #ffffff;
-      border: 2px solid transparent;
-      box-shadow: 0 6px 20px rgba(238, 93, 140, 0.3);
-      padding: 0.9rem 2rem;
-      font-size: 0.95rem;
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, #F77BA0 0%, #FF8FB5 100%);
-      box-shadow: 0 10px 30px rgba(238, 93, 140, 0.5);
-    }
-
-    /* Snowflakes Animation */
-    .snowflake {
-      position: absolute;
-      top: -10px;
-      z-index: 2;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 1.5rem;
-      animation: fall linear infinite;
-    }
-
-    @keyframes fall {
-      to {
-        transform: translateY(100vh) rotate(360deg);
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      .logo {
-        max-width: 280px;
-        margin-bottom: 1.5rem;
-      }
-
-      .main-heading {
-        font-size: 2.2rem;
-      }
-
-      .subheading {
-        font-size: 1.1rem;
-      }
-
-      .buttons-container {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .btn {
-        width: 100%;
-        max-width: 350px;
-      }
-
-      .btn-primary {
-        padding: 1.2rem 2.5rem;
-        font-size: 1.1rem;
-      }
-
-      .btn-secondary {
-        padding: 0.85rem 1.8rem;
-        font-size: 0.9rem;
-      }
-
-      .christmas-badge span {
-        font-size: 0.75rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .main-heading {
-        font-size: 1.8rem;
-      }
-
-      .subheading {
-        font-size: 1rem;
-      }
-
-      .btn {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-      }
-    }
-
-    /* Sparkle Effect */
-    @keyframes sparkle {
-
-      0%,
-      100% {
         opacity: 0;
       }
 
-      50% {
+      10% {
         opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
       }
     }
 
-    .sparkle {
-      position: absolute;
-      width: 4px;
-      height: 4px;
-      background: #EBDBA5;
-      border-radius: 50%;
-      animation: sparkle 2s ease-in-out infinite;
-      box-shadow: 0 0 10px #EBDBA5;
+    .animate-snowfall {
+      animation: snowfall linear infinite;
     }
   </style>
 </head>
 
 <body>
-  <div class="hero-section">
-    <!-- Background Image -->
-    <img src="web background image.png" alt="Christmas Background" class="background-image" />
-
-    <!-- Overlay -->
-    <div class="overlay"></div>
-
-    <!-- Snowflakes -->
-    <div id="snowflakes-container"></div>
-
-    <!-- Main Content -->
-    <div class="content">
-      <!-- Logo -->
-      <img src="huggnote bespoke logo.png" alt="Huggnote Bespoke" class="logo" />
-
-      <!-- Christmas Badge -->
-      <div class="christmas-badge">
-        <span>✨ Limited Edition Christmas Release ✨</span>
-      </div>
-
-      <!-- Main Heading -->
-      <h1 class="main-heading">
-        Bespoke Songs<br>Wrapped in Emotions
-      </h1>
-
-      <!-- Subheading -->
-      <p class="subheading">
-        Create unforgettable musical memories this Christmas
-      </p>
-
-      <!-- Buttons -->
-      <div class="buttons-container">
-        <a href="https://huggnotebespoke.com" class="btn btn-primary">
-          <span>Send a Bespoke Song</span>
-        </a>
-        <a href="https://app.huggnote.com" class="btn btn-secondary">
-          <span>Take Me to Huggnote</span>
-        </a>
+  <div id="container">
+    <div class="tailwind">
+      <div id="node-0_7_container" style="height: 100%;">
+        <div class="min-h-screen bg-[#2B3E50] relative overflow-hidden w-full">
+          <div class="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+            <div class="absolute animate-snowfall"
+              style="left: 50.365%; animation-duration: 7.05932s; animation-delay: 0.965518s; opacity: 0.405877; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.00984px; height: 4.00984px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 35.1463%; animation-duration: 6.7502s; animation-delay: 3.24126s; opacity: 0.818947; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 2.49338px; height: 2.49338px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 40.717%; animation-duration: 7.83896s; animation-delay: 4.77115s; opacity: 0.629255; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.0704px; height: 3.0704px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 8.46101%; animation-duration: 7.30028s; animation-delay: 0.839742s; opacity: 0.471628; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.71105px; height: 4.71105px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 82.5981%; animation-duration: 7.90785s; animation-delay: 0.377127s; opacity: 0.533676; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 2.73207px; height: 2.73207px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 34.5417%; animation-duration: 5.21733s; animation-delay: 2.84226s; opacity: 0.321208; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.983px; height: 4.983px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 79.7608%; animation-duration: 6.61477s; animation-delay: 4.20869s; opacity: 0.607985; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.49118px; height: 5.49118px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 42.7502%; animation-duration: 5.86264s; animation-delay: 1.55107s; opacity: 0.661735; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.79804px; height: 5.79804px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 74.0824%; animation-duration: 5.40115s; animation-delay: 1.23434s; opacity: 0.881596; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.4736px; height: 4.4736px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 68.1429%; animation-duration: 5.70633s; animation-delay: 0.0478467s; opacity: 0.665037; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.66825px; height: 3.66825px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 9.08457%; animation-duration: 7.50089s; animation-delay: 4.45786s; opacity: 0.641878; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.58641px; height: 3.58641px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 20.8888%; animation-duration: 7.893s; animation-delay: 3.92077s; opacity: 0.492615; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.83013px; height: 5.83013px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 48.8623%; animation-duration: 6.7881s; animation-delay: 1.63494s; opacity: 0.645024; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.84861px; height: 3.84861px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 22.0206%; animation-duration: 6.64992s; animation-delay: 3.39296s; opacity: 0.463794; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.43354px; height: 3.43354px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 33.562%; animation-duration: 6.72749s; animation-delay: 0.779028s; opacity: 0.474858; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.23381px; height: 4.23381px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 67.368%; animation-duration: 5.78362s; animation-delay: 0.10889s; opacity: 0.738845; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.82459px; height: 4.82459px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 65.0694%; animation-duration: 6.61479s; animation-delay: 2.28393s; opacity: 0.343172; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.26987px; height: 5.26987px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 8.08908%; animation-duration: 7.19311s; animation-delay: 1.89261s; opacity: 0.591931; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.16209px; height: 5.16209px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 33.1318%; animation-duration: 7.25139s; animation-delay: 2.17325s; opacity: 0.788411; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.79514px; height: 5.79514px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 98.9133%; animation-duration: 6.49559s; animation-delay: 4.76396s; opacity: 0.838465; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.82428px; height: 4.82428px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 94.3788%; animation-duration: 7.68096s; animation-delay: 4.3147s; opacity: 0.867695; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.38573px; height: 4.38573px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 37.7907%; animation-duration: 7.27262s; animation-delay: 0.565509s; opacity: 0.704456; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.66346px; height: 5.66346px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 40.3271%; animation-duration: 6.13618s; animation-delay: 0.688488s; opacity: 0.38223; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.16539px; height: 5.16539px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 59.6434%; animation-duration: 5.21575s; animation-delay: 3.95355s; opacity: 0.693731; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 2.13143px; height: 2.13143px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 24.3916%; animation-duration: 6.05102s; animation-delay: 1.30326s; opacity: 0.446368; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.64228px; height: 3.64228px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 70.4159%; animation-duration: 6.33424s; animation-delay: 1.88874s; opacity: 0.441454; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.35149px; height: 3.35149px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 14.6892%; animation-duration: 6.64457s; animation-delay: 1.55517s; opacity: 0.789973; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.26314px; height: 4.26314px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 90.4987%; animation-duration: 6.46143s; animation-delay: 4.07984s; opacity: 0.679634; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.60419px; height: 5.60419px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 62.034%; animation-duration: 5.05166s; animation-delay: 4.18916s; opacity: 0.712886; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 2.28946px; height: 2.28946px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 52.0937%; animation-duration: 7.32968s; animation-delay: 0.379861s; opacity: 0.346735; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.91363px; height: 4.91363px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 30.279%; animation-duration: 6.77269s; animation-delay: 0.953649s; opacity: 0.882669; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 2.38344px; height: 2.38344px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 81.0113%; animation-duration: 6.14638s; animation-delay: 4.88499s; opacity: 0.876183; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.44895px; height: 4.44895px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 30.9627%; animation-duration: 7.65873s; animation-delay: 0.378345s; opacity: 0.507111; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.89095px; height: 5.89095px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 29.1168%; animation-duration: 6.81048s; animation-delay: 0.651624s; opacity: 0.608317; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.73203px; height: 3.73203px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 48.1968%; animation-duration: 5.53624s; animation-delay: 1.46469s; opacity: 0.670793; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.15736px; height: 4.15736px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 61.9808%; animation-duration: 5.66113s; animation-delay: 4.96181s; opacity: 0.417133; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.42467px; height: 4.42467px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 96.7504%; animation-duration: 7.13192s; animation-delay: 1.43406s; opacity: 0.696502; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.99752px; height: 5.99752px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 75.5511%; animation-duration: 5.86357s; animation-delay: 2.39192s; opacity: 0.300956; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 2.3395px; height: 2.3395px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 64.4371%; animation-duration: 7.00151s; animation-delay: 4.89975s; opacity: 0.479763; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.8719px; height: 3.8719px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 4.63076%; animation-duration: 7.49072s; animation-delay: 1.31177s; opacity: 0.776045; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.92302px; height: 3.92302px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 53.3822%; animation-duration: 6.41713s; animation-delay: 2.27524s; opacity: 0.484955; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.16074px; height: 4.16074px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 56.7288%; animation-duration: 6.8854s; animation-delay: 2.47226s; opacity: 0.417496; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 2.63686px; height: 2.63686px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 20.4349%; animation-duration: 7.54542s; animation-delay: 3.75518s; opacity: 0.587243; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 2.29555px; height: 2.29555px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 16.2662%; animation-duration: 5.80689s; animation-delay: 0.226449s; opacity: 0.713706; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 2.63922px; height: 2.63922px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 58.4494%; animation-duration: 7.04356s; animation-delay: 4.58867s; opacity: 0.780156; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.85043px; height: 5.85043px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 46.9036%; animation-duration: 5.26118s; animation-delay: 3.23776s; opacity: 0.748967; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.3601px; height: 3.3601px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 53.7362%; animation-duration: 6.94508s; animation-delay: 3.72847s; opacity: 0.79741; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 3.99688px; height: 3.99688px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 75.2931%; animation-duration: 6.57479s; animation-delay: 0.610542s; opacity: 0.319226; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 2.01047px; height: 2.01047px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 87.2473%; animation-duration: 5.13897s; animation-delay: 0.40348s; opacity: 0.803941; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 5.08149px; height: 5.08149px;"></div>
+            </div>
+            <div class="absolute animate-snowfall"
+              style="left: 88.1325%; animation-duration: 7.45218s; animation-delay: 2.77458s; opacity: 0.616262; top: -10px;">
+              <div class="bg-white rounded-full" style="width: 4.1198px; height: 4.1198px;"></div>
+            </div>
+          </div><button id="menuBtn"
+            class="fixed top-6 right-6 z-50 w-14 h-14 bg-[#EA5B8B] rounded-full flex items-center justify-center hover:bg-[#C54771] transition-all duration-300 shadow-[0_0_20px_rgba(234,91,139,0.5)] hover:shadow-[0_0_30px_rgba(234,91,139,0.8)]"><svg
+              xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="lucide lucide-menu w-6 h-6 text-white" aria-hidden="true">
+              <path d="M4 5h16"></path>
+              <path d="M4 12h16"></path>
+              <path d="M4 19h16"></path>
+            </svg></button>
+          <div id="sidebar"
+            class="fixed top-0 right-0 h-full w-[85%] sm:w-80 bg-gradient-to-br from-[#EA5B8B] to-[#C54771] shadow-2xl z-40 border-l border-white/30"
+            style="transform: translateX(100%); transition: transform 0.3s ease-in-out;">
+            <div class="flex flex-col h-full pt-24 px-6 sm:px-8">
+              <nav class="flex flex-col gap-4">
+                <a href="#hero"
+                  class="text-white hover:text-white/80 transition-colors py-3 border-b border-white/20">Home</a>
+                <a href="#how-it-works"
+                  class="text-white hover:text-white/80 transition-colors py-3 border-b border-white/20 text-left">How
+                  It Works</a>
+                <a href="#testimonials"
+                  class="text-white hover:text-white/80 transition-colors py-3 border-b border-white/20 text-left">Testimonials</a>
+                <a href="#about"
+                  class="text-white hover:text-white/80 transition-colors py-3 border-b border-white/20 text-left">About
+                  Us</a>
+                <a href="#footer"
+                  class="text-white hover:text-white/80 transition-colors py-3 border-b border-white/20 text-left">Privacy
+                  &amp; GDPR</a>
+              </nav>
+            </div>
+          </div>
+          <div id="hero" class="relative h-screen flex flex-col items-center px-4 overflow-hidden bg-[#1a2a3f]">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat block sm:hidden"
+              style="background-image: url('ddc062b0768ab3d65244cf1aa2f4ecfe19db879b.png'); background-color: rgb(26, 42, 63);">
+            </div>
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat hidden sm:block"
+              style="background-image: url('ddc062b0768ab3d65244cf1aa2f4ecfe19db879b.png'); background-color: rgb(26, 42, 63);">
+            </div>
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div
+              class="absolute top-[20%] left-1/2 sm:relative sm:top-auto sm:left-auto sm:translate-x-0 z-10 sm:mt-24 w-full max-w-md sm:max-w-3xl">
+              <img src="Logo_Desktop_Transparent_Cropped.png" alt="Huggnote Christmas" class="w-full mx-auto sm:hidden"
+                decoding="sync" loading="eager" style="transform: translateX(-50%) scale(1.3); margin-left: -4%;"><img
+                src="Logo_Desktop_Transparent_Cropped.png" alt="Huggnote Christmas"
+                class="w-full mx-auto hidden sm:block" decoding="sync" loading="eager" style="transform: scale(0.9);">
+            </div>
+            <div class="absolute top-[44%] sm:top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+              <h1 class="text-white text-center block sm:hidden whitespace-nowrap"
+                style="font-family: Lora, serif; font-weight: 400; font-size: 2.5rem; line-height: 1.2;">Make Hearts
+                Sing</h1>
+              <h1 class="text-white text-center whitespace-nowrap hidden sm:block"
+                style="font-family: Lora, serif; font-weight: 400; font-size: 4.5rem;">Make Their Heart Sing</h1>
+            </div>
+            <div id="about"
+              class="absolute top-[52%] sm:top-[60%] left-1/2 -translate-x-1/2 z-10 w-[80%] sm:w-[80%] max-w-6xl px-2 sm:px-0">
+              <p class="text-white text-center leading-relaxed block sm:hidden"
+                style="font-family: Lora, serif; font-size: 0.9rem; font-weight: 400;">Make someone's heart sing this
+                Holiday Season with Huggnote.<br>We turn songs into virtual hugs, instantly sendable by WhatsApp or
+                SMS<br>From 'Merry Christmas' to 'I Love You' there's a perfect Huggnote for every moment</p>
+              <p class="text-white text-center leading-relaxed hidden sm:block"
+                style="font-family: Lora, serif; font-size: 1.1rem; font-weight: 400;">Make someone's heart sing this
+                Holiday Season with Huggnote. We turn songs into virtual hugs, instantly sendable to anyone, anywhere to
+                instantly make their day. With lots of themes - from 'Merry Christmas' to 'I Love You' there's a perfect
+                Huggnote for every moment.</p>
+            </div>
+            <div class="absolute bottom-36 sm:bottom-24 left-1/2 -translate-x-1/2 z-10 px-4 sm:px-0"><a
+                href="https://app.huggnote.com" target="_blank" rel="noopener noreferrer"><button
+                  class="relative overflow-hidden bg-gradient-to-r from-[#EA5B8B] via-[#D6527D] to-[#C54771] text-white px-20 py-5 rounded-full transition-all duration-200 ease-out shadow-[0_4px_20px_rgba(234,91,139,0.4)] hover:shadow-[0_6px_30px_rgba(234,91,139,0.6)] hover:scale-105 active:scale-100 active:shadow-[0_2px_40px_rgba(234,91,139,0.9),0_0_80px_rgba(234,91,139,0.6),0_0_0_4px_rgba(234,91,139,0.3)] ring-2 ring-white/30 ring-offset-2 ring-offset-transparent block sm:hidden"
+                  style="font-family: Lora, serif; font-weight: 700; letter-spacing: 0.5px; font-size: 1.25rem; min-width: auto; white-space: nowrap;"><span
+                    class="relative z-10">Send Huggs</span></button><button
+                  class="relative overflow-hidden bg-gradient-to-r from-[#EA5B8B] via-[#D6527D] to-[#C54771] text-white px-10 py-5 rounded-full transition-all duration-200 ease-out shadow-[0_4px_20px_rgba(234,91,139,0.4)] hover:shadow-[0_6px_30px_rgba(234,91,139,0.6)] hover:scale-105 active:scale-100 active:shadow-[0_2px_40px_rgba(234,91,139,0.9),0_0_80px_rgba(234,91,139,0.6),0_0_0_4px_rgba(234,91,139,0.3)] ring-2 ring-white/30 ring-offset-2 ring-offset-transparent hidden sm:block"
+                  style="font-family: Lora, serif; font-weight: 700; letter-spacing: 0.5px; font-size: 1.4625rem; min-width: 220px;"><span
+                    class="relative z-10">Send Huggs</span></button></a></div>
+          </div>
+          <div id="testimonials"
+            class="relative min-h-screen flex items-center justify-center py-16 sm:py-24 md:py-32 lg:py-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#2B3E50]/80 via-[#1a2a3f]/90 to-[#2B3E50]/80"></div>
+            <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+              <div class="flex flex-col items-center gap-8 sm:gap-12 md:gap-16">
+                <h2 class="text-white text-center"
+                  style="font-family: Lora, serif; font-weight: 400; font-size: clamp(2.5rem, 5vw, 3.75rem);">What Our
+                  Users Say</h2>
+                <p class="text-white/80 text-center"
+                  style="font-family: Lora, serif; font-size: clamp(1.25rem, 2.75vw, 1.5rem);">Real stories from people
+                  who've sent the gift of music</p>
+              </div>
+              <div class="h-16"></div>
+              <div class="flex justify-center w-full">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-4 max-w-5xl">
+                  <div class="flex flex-col items-center text-center" style="opacity: 1; transform: none;">
+                    <div class="flex gap-1 mb-10"><span class="text-[#EA5B8B] text-2xl">★</span><span
+                        class="text-[#EA5B8B] text-2xl">★</span><span class="text-[#EA5B8B] text-2xl">★</span><span
+                        class="text-[#EA5B8B] text-2xl">★</span><span class="text-[#EA5B8B] text-2xl">★</span></div>
+                    <p class="text-white/90 leading-relaxed mb-6 text-base md:text-lg italic text-center"
+                      style="font-family: Lora, serif;">"What better way of making someone's day, than a beautiful
+                      Huggnote. I've made so many people smile just by sending a Huggnote. Big fan of Huggnote."</p>
+                    <div class="w-12 h-px bg-gradient-to-r from-transparent via-[#EA5B8B] to-transparent mb-6"></div>
+                    <div class="flex flex-col items-center">
+                      <p class="text-white text-center mb-1"
+                        style="font-family: Lora, serif; font-weight: 600; font-size: 1.125rem;">Lorraine</p>
+                      <p class="text-white/60 text-center" style="font-family: Inter, sans-serif; font-size: 0.875rem;">
+                        Ireland</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-center text-center" style="opacity: 1; transform: none;">
+                    <div class="flex gap-1 mb-10"><span class="text-[#EA5B8B] text-2xl">★</span><span
+                        class="text-[#EA5B8B] text-2xl">★</span><span class="text-[#EA5B8B] text-2xl">★</span><span
+                        class="text-[#EA5B8B] text-2xl">★</span><span class="text-[#EA5B8B] text-2xl">★</span></div>
+                    <p class="text-white/90 leading-relaxed mb-6 text-base md:text-lg italic text-center"
+                      style="font-family: Lora, serif;">"Absolutely Beautiful, Love this"</p>
+                    <div class="w-12 h-px bg-gradient-to-r from-transparent via-[#EA5B8B] to-transparent mb-6"></div>
+                    <div class="flex flex-col items-center">
+                      <p class="text-white text-center mb-1"
+                        style="font-family: Lora, serif; font-weight: 600; font-size: 1.125rem;">Alison</p>
+                      <p class="text-white/60 text-center" style="font-family: Inter, sans-serif; font-size: 0.875rem;">
+                        Ireland</p>
+                    </div>
+                  </div>
+                  <div class="flex flex-col items-center text-center" style="opacity: 1; transform: none;">
+                    <div class="flex gap-1 mb-10"><span class="text-[#EA5B8B] text-2xl">★</span><span
+                        class="text-[#EA5B8B] text-2xl">★</span><span class="text-[#EA5B8B] text-2xl">★</span><span
+                        class="text-[#EA5B8B] text-2xl">★</span><span class="text-[#EA5B8B] text-2xl">★</span></div>
+                    <p class="text-white/90 leading-relaxed mb-6 text-base md:text-lg italic text-center"
+                      style="font-family: Lora, serif;">"I am hooked, love it! Sent lots of huggnotes in the last 24
+                      hours!"</p>
+                    <div class="w-12 h-px bg-gradient-to-r from-transparent via-[#EA5B8B] to-transparent mb-6"></div>
+                    <div class="flex flex-col items-center">
+                      <p class="text-white text-center mb-1"
+                        style="font-family: Lora, serif; font-weight: 600; font-size: 1.125rem;">Yvonne</p>
+                      <p class="text-white/60 text-center" style="font-family: Inter, sans-serif; font-size: 0.875rem;">
+                        Ireland</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="how-it-works"
+            class="relative min-h-screen flex items-center justify-center py-16 sm:py-24 md:py-32 lg:py-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-[#2B3E50]/80 via-[#1a2a3f]/90 to-[#2B3E50]/80"></div>
+            <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12">
+              <div class="flex flex-col items-center gap-8 sm:gap-12 md:gap-16">
+                <h2 class="text-white text-center"
+                  style="font-family: Lora, serif; font-weight: 400; font-size: clamp(2.5rem, 5vw, 3.75rem);">How It
+                  Works</h2>
+                <p class="text-white/80 text-center"
+                  style="font-family: Lora, serif; font-size: clamp(1.25rem, 2.75vw, 1.5rem);">Four simple steps to make
+                  their heart sing</p>
+              </div>
+              <div class="h-16"></div>
+              <div class="flex justify-center w-full">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 md:gap-12 lg:gap-4 max-w-4xl">
+                  <div class="flex flex-col items-center text-center" style="opacity: 1; transform: none;">
+                    <div
+                      class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#EA5B8B] via-[#D6527D] to-[#C54771] flex items-center justify-center shadow-[0_0_40px_rgba(234,91,139,0.5)]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-sparkles w-10 h-10 md:w-12 md:h-12 text-white" aria-hidden="true">
+                        <path
+                          d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z">
+                        </path>
+                        <path d="M20 2v4"></path>
+                        <path d="M22 4h-4"></path>
+                        <circle cx="4" cy="20" r="2"></circle>
+                      </svg>
+                    </div>
+                    <div class="h-8"></div>
+                    <h3 class="text-white text-center"
+                      style="font-family: Lora, serif; font-weight: 500; font-size: clamp(1.125rem, 2.25vw, 1.375rem);">
+                      Choose Your Theme</h3>
+                    <div class="h-4"></div>
+                    <p class="text-white/70 text-center leading-relaxed"
+                      style="font-family: Lora, serif; font-size: 0.9375rem;">Merry Christmas, I Love You, Happy New
+                      Year...</p>
+                  </div>
+                  <div class="flex flex-col items-center text-center" style="opacity: 1; transform: none;">
+                    <div
+                      class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#EA5B8B] via-[#D6527D] to-[#C54771] flex items-center justify-center shadow-[0_0_40px_rgba(234,91,139,0.5)]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-music w-10 h-10 md:w-12 md:h-12 text-white" aria-hidden="true">
+                        <path d="M9 18V5l12-2v13"></path>
+                        <circle cx="6" cy="18" r="3"></circle>
+                        <circle cx="18" cy="16" r="3"></circle>
+                      </svg>
+                    </div>
+                    <div class="h-8"></div>
+                    <h3 class="text-white text-center"
+                      style="font-family: Lora, serif; font-weight: 500; font-size: clamp(1.125rem, 2.25vw, 1.375rem);">
+                      Choose Your Song</h3>
+                    <div class="h-4"></div>
+                    <p class="text-white/70 text-center leading-relaxed"
+                      style="font-family: Lora, serif; font-size: 0.9375rem;">Choose from our curated list of well loved
+                      songs</p>
+                  </div>
+                  <div class="flex flex-col items-center text-center" style="opacity: 1; transform: none;">
+                    <div
+                      class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#EA5B8B] via-[#D6527D] to-[#C54771] flex items-center justify-center shadow-[0_0_40px_rgba(234,91,139,0.5)]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-heart w-10 h-10 md:w-12 md:h-12 text-white" aria-hidden="true">
+                        <path
+                          d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5">
+                        </path>
+                      </svg>
+                    </div>
+                    <div class="h-8"></div>
+                    <h3 class="text-white text-center"
+                      style="font-family: Lora, serif; font-weight: 500; font-size: clamp(1.125rem, 2.25vw, 1.375rem);">
+                      Personalise It</h3>
+                    <div class="h-4"></div>
+                    <p class="text-white/70 text-center leading-relaxed"
+                      style="font-family: Lora, serif; font-size: 0.9375rem;">Add a heartfelt message</p>
+                  </div>
+                  <div class="flex flex-col items-center text-center" style="opacity: 1; transform: none;">
+                    <div
+                      class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-[#EA5B8B] via-[#D6527D] to-[#C54771] flex items-center justify-center shadow-[0_0_40px_rgba(234,91,139,0.5)]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                        class="lucide lucide-send w-10 h-10 md:w-12 md:h-12 text-white" aria-hidden="true">
+                        <path
+                          d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z">
+                        </path>
+                        <path d="m21.854 2.147-10.94 10.939"></path>
+                      </svg>
+                    </div>
+                    <div class="h-8"></div>
+                    <h3 class="text-white text-center"
+                      style="font-family: Lora, serif; font-weight: 500; font-size: clamp(1.125rem, 2.25vw, 1.375rem);">
+                      Deliver Instantly</h3>
+                    <div class="h-4"></div>
+                    <p class="text-white/70 text-center leading-relaxed"
+                      style="font-family: Lora, serif; font-size: 0.9375rem;">Deliver instantly to anyone, anywhere via
+                      WhatsApp or SMS</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="relative bg-[#2B3E50] py-8 sm:py-10 md:py-12 w-full">
+            <div class="w-full flex flex-col items-center justify-center px-4">
+              <p class="text-white/70 text-center mb-4 sm:mb-6"
+                style="font-family: Lora, serif; font-size: clamp(0.95rem, 2vw, 1.1rem); font-style: italic;">Show us
+                some love on our socials</p>
+              <div class="flex justify-center items-center gap-8 sm:gap-10"><a href="https://www.instagram.com/huggnote"
+                  target="_blank" rel="noopener noreferrer"
+                  class="text-white/60 hover:text-[#EA5B8B] transition-colors duration-200 hover:scale-110 transform transition-transform"
+                  aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-instagram w-10 h-10" aria-hidden="true">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                  </svg></a><a href="https://www.facebook.com/huggnote/" target="_blank" rel="noopener noreferrer"
+                  class="text-white/60 hover:text-[#EA5B8B] transition-colors duration-200 hover:scale-110 transform transition-transform"
+                  aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" class="lucide lucide-facebook w-10 h-10" aria-hidden="true">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                  </svg></a></div>
+            </div>
+          </div>
+          <footer id="footer" class="relative bg-[#1a2a3f] py-6 sm:py-8 md:py-10 border-t border-white/10 w-full">
+            <div class="w-full flex items-center justify-center px-4">
+              <p class="text-white/60 text-center"
+                style="font-family: Inter, sans-serif; font-size: clamp(0.75rem, 1.5vw, 0.875rem);">© Huggnote Ltd 2025
+              </p>
+            </div>
+          </footer>
+        </div>
       </div>
     </div>
   </div>
-
+  </div>
   <script>
-    // Create snowflakes
-    function createSnowflakes() {
-      const container = document.getElementById('snowflakes-container');
-      const snowflakeCount = 50;
+    const menuBtn = document.getElementById('menuBtn');
+    const sidebar = document.getElementById('sidebar');
+    let isOpen = false;
 
-      for (let i = 0; i < snowflakeCount; i++) {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-        snowflake.innerHTML = '❄';
-        snowflake.style.left = Math.random() * 100 + '%';
-        snowflake.style.animationDuration = (Math.random() * 3 + 5) + 's';
-        snowflake.style.animationDelay = Math.random() * 5 + 's';
-        snowflake.style.fontSize = (Math.random() * 1 + 0.5) + 'rem';
-        snowflake.style.opacity = Math.random() * 0.6 + 0.4;
-        container.appendChild(snowflake);
-      }
-    }
-
-    // Create sparkles
-    function createSparkles() {
-      const content = document.querySelector('.content');
-      const sparkleCount = 20;
-
-      for (let i = 0; i < sparkleCount; i++) {
-        const sparkle = document.createElement('div');
-        sparkle.classList.add('sparkle');
-        sparkle.style.left = Math.random() * 100 + '%';
-        sparkle.style.top = Math.random() * 100 + '%';
-        sparkle.style.animationDelay = Math.random() * 2 + 's';
-        content.appendChild(sparkle);
-      }
-    }
-
-    // Initialize effects
-    window.addEventListener('load', () => {
-      createSnowflakes();
-      createSparkles();
+    menuBtn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      sidebar.style.transform = isOpen ? 'translateX(0)' : 'translateX(100%)';
     });
 
-    // Add smooth scroll behavior
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth'
-          });
-        }
+    // Close sidebar when clicking outside
+    document.addEventListener('click', (e) => {
+      if (isOpen && !sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+        isOpen = false;
+        sidebar.style.transform = 'translateX(100%)';
+      }
+    });
+
+    // Close sidebar when clicking a link
+    sidebar.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        isOpen = false;
+        sidebar.style.transform = 'translateX(100%)';
       });
     });
   </script>
